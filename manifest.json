@@ -1,0 +1,48 @@
+{
+  "name": "QuaiaICs",
+  "description": "Quaia-constrained periodic LCDM initial conditions (fixed-amplitude white noise).",
+  "cosmology": {
+    "model": "Planck18-like",
+    "Omega_m": 0.315,
+    "Omega_b": 0.049,
+    "h": 0.674,
+    "sigma8": 0.81,
+    "n_s": 0.965
+  },
+  "box": {
+    "boxsize_Mpc_over_h": 13260.3,
+    "res_constrain": 256,
+    "res_box_reference": 1024,
+    "observer_Mpc_over_h": [6639.89, 6648.88, 6619.85],
+    "periodic": true,
+    "units": "comoving Mpc/h"
+  },
+  "constraint": {
+    "survey": "Quaia (Gaia DR3 x unWISE), G < 20.0, |b| >= 10 deg",
+    "n_quasars": 744834,
+    "z_min": 0.0,
+    "z_max": 4.6645,
+    "constrained_radius_Mpc_over_h": 5229.03,
+    "quasar_linear_bias_b1": 2.5,
+    "informed_scale_k_h_over_Mpc": 0.05,
+    "informed_scale_Mpc_over_h": 120
+  },
+  "field": {
+    "type": "primordial white noise (unit variance, mean 0)",
+    "fixed_amplitude": true,
+    "gauge": "-1/k^2 (infall into overdensities)",
+    "grid_order": "column-major, x fastest (Julia native)",
+    "carrier_seed": 101,
+    "interior_per_mode_amplitude_std_over_mean": 9.0e-16
+  },
+  "data_products": {
+    "carrier": "quaia_icbox_phases.npz",
+    "carrier_contents": "phi_coarse (129,256,256) constrained phases + this manifest",
+    "realize_at_any_resolution": "examples/realize_box.jl"
+  },
+  "provenance": {
+    "generated_by": "DiscoInverse.jl constrained_ic_box / refine_phases",
+    "forward_model": "DiscoDJ.jl (differentiable LCDM: IC operator, nLPT, lightcone, CDM-sheet)",
+    "method_doc": "docs/method.md"
+  }
+}

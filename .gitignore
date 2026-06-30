@@ -1,0 +1,8 @@
+# realized grids and sim ICs are regenerated locally from the carrier — never commit them
+*.f32
+*.bin
+*.gdt
+*.dat
+omega_*.npz
+*_snap_*.npz
+__pycache__/
