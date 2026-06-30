@@ -9,17 +9,14 @@ The **constraint carrier** — the Quaia-constrained fixed-amplitude phases on t
 determines the box**: every resolution (1024³, 2048³, …) is re-realized from it locally with
 `examples/realize_box.jl`, so we do not ship multi-GB grids.
 
-**Download** (attached to the tagged release):
-
-```bash
-curl -L -O https://github.com/yipihey/QuaiaICs/releases/download/v1.0/quaia_icbox_phases.npz
-# or:  gh release download v1.0 --repo yipihey/QuaiaICs --pattern 'quaia_icbox_phases.npz'
-```
+**It is committed in this repository** at `data/quaia_icbox_phases.npz`, so a plain `git clone` gives you
+everything. (If you prefer to keep it out of your working tree, it can also be served as a release
+asset — `gh release download ... --pattern 'quaia_icbox_phases.npz'`.)
 
 Then, e.g.:
 
 ```bash
-julia ../examples/realize_box.jl quaia_icbox_phases.npz 1024 omega_1024.f32
+julia examples/realize_box.jl data/quaia_icbox_phases.npz 1024 omega_1024.f32
 ```
 
 ### Contents
